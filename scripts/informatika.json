@@ -1,0 +1,65 @@
+{
+    "modules": [
+        {
+            "ime": "00_cela_stevilka",
+            "common": "",
+            "naloge": [
+                {
+                    "ime": "pozitivnost",
+                    "docs": "\n\t* Uporabnik vnese stevilko.\n\t* Izpisi ali je stevilka pozitivna!\n\t",
+                    "resitve": {
+                        "Python": "\tx = int(input(\"Vnesi stevilko: \"))\n\tif x > 0:\n\t\tprint(\"Je soda\")\n\telse:\n\t\tprint(\"Je liha\")\n"
+                    }
+                },
+                {
+                    "ime": "sodost",
+                    "docs": "\n\t* Uporabnik vnese poljubno celo stevilko.\n\t* Izpisi ali je stevilka soda!\n\t",
+                    "resitve": {
+                        "Python": "\tx = int(input(\"Vnesi stevilko: \"))\n\tif x % 2 == 0:\n\t\tprint(\"Je soda\")\n"
+                    }
+                },
+                {
+                    "ime": "lihost",
+                    "docs": "\n\t* Uporabnik vnese poljubno celo stevilko.\n\t* Izpisi ali je stevilka liha!\n\t",
+                    "resitve": {
+                        "Python": "\tx = int(input(\"Vnesi stevilko: \"))\n\tif x % 2 == 1:\n\t\tprint(\"Je liha\")\n"
+                    }
+                },
+                {
+                    "ime": "delitelji",
+                    "docs": "\n\t* Uporabnik vnese poljubno celo stevilko.\n\t* Izpisi vse delitelje stevila!\n\t",
+                    "resitve": {
+                        "Python": "\tx = int(input(\"Vnesi stevilko: \"))\n\tfor i in range(x):\n\t\tif x % i == 0:\n\t\t\tprint(i)\n"
+                    }
+                },
+                {
+                    "ime": "prastevila",
+                    "docs": "\n\t* Uporabnik vnese poljubno celo stevilko.\n\t* Preveri ali je stevilo prastevilo!\n\t",
+                    "resitve": {
+                        "Python": "\tx = int(input(\"Vnesi stevilko: \"))\n\tprastevilo = True\n\tfor i in range(x):\n\t\tif x % i == 0:\n\t\t\tprastevilo = False\n\tif prastevilo:\n\t\tprint(\"Je prastevilo\")\n\telse:\n\t\tprint(\"Ni prastevilo\")\n"
+                    }
+                }
+            ]
+        },
+        {
+            "ime": "01_drevo",
+            "common": "class Node:\n\tdef __init__(self, vrednost: int):\n\t\tself.vrednost = vrednost\n\t\tself.otroci: list[Node] = []\n\n\nn1 = Node(0)\nn2 = Node(1)\nn3 = Node(2)\nn4 = Node(3)\nn5 = Node(4)\n\nn1.otroci = [n2, n3]\nn2.otroci = [n4]\nn4.otroci = [n5]\n\n",
+            "naloge": [
+                {
+                    "ime": "izpisi",
+                    "docs": "\n\t* Ustvari funkcijo ki sprejme objekt razreda `Node`.\n\t* Izpisi vrednost objekta ter vrednosti vseh elementov v drevesu.\n\t",
+                    "resitve": {
+                        "Python": "\n\tdef funkcija(node: Node):\n\t\tprint(node.vrednost)\n\t\tfor otrok in node.otroci:\n\t\t\tfunkcija(otrok)\n\n\tprint(f\"Vsota je: {funkcija(n1)}\")\n"
+                    }
+                },
+                {
+                    "ime": "vsota",
+                    "docs": "\n\t* Ustvari funkcijo ki sprejme objekt razreda `Node`.\n\t* Vrni iz funkcije vsoto vseh vrednosti elementov v drevesu.\n\t",
+                    "resitve": {
+                        "Python": "\n\tdef funkcija(node: Node, vsota: int = 0):\n\t\tvsota += node.vrednost\n\t\tfor otrok in node.otroci:\n\t\t\tvsota += funkcija(otrok)\n\t\treturn vsota\n\n\tprint(f\"Vsota je: {funkcija(n1)}\")\n"
+                    }
+                }
+            ]
+        }
+    ]
+}
